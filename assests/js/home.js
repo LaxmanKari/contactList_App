@@ -1,0 +1,1 @@
+console.log('Mt script is loaded'); 

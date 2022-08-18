@@ -1,0 +1,48 @@
+<html>
+    <head>
+  <title> <%= locals.title %> </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Our CSS should be last in order to override any style made by above libraries -->
+  <link rel="stylesheet" href="/css/home.css"> 
+    </head>
+    <body>
+            <h1 id="page-heading">
+                <i class="fa fa-address-book"></i>
+                CONTACTS LIST
+            </h1>
+    
+            <div>
+                <ul>
+                    <% for(let i of contact_list){ %> 
+                       <Li class="contact">
+                            <P><%= i.name %></P>
+                            <P><%= i.phone %></P>
+                        </Li>     
+
+                       <a href="delete-contact/?id=<%= i._id %>">
+                        <i class = 'fa fa-trash' id="trash-icon">  </i>
+                       </a>
+                       
+                    <%}%> 
+                </ul>
+            </div>  
+
+        <!-- a thematic break in an HTML page -->
+        <hr style="width: 80%;">"  
+
+        <!-- DIV FOR FORM -->
+        <div>
+            <form  action="/create-contact" method="POST">
+               
+                <div>
+                <input type="text" name="name" placeholder="Enter name" required> 
+                <input type="number" name="phone" placeholder="Enter phone" required> 
+               </div>
+                
+                <button type="submit" id="submit">Add</button>
+            </form>
+        </div>
+    
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
+</html>
